@@ -8,9 +8,10 @@ WELCOME_PROMPT=true
 
 welcome_msg() {
   echo ${BG_RED}${WHITE} \
-      GA${RESET}${WHITE}${BG_BLACK} \
-      General Assembly ${RESET}${BG_YELLOW}${BLACK} \
-      Web Development Immersive ${RESET}
+      Oracle Hubsters ${RESET}${WHITE}${BG_BLACK} \
+      Do Big Things${RESET}${BG_YELLOW}${BLACK} \
+      
+  echo Setup By - Ilya O ${RESET}
   echo "------------------------------------------"
   echo $(git --version)
   if which brew >/dev/null; then
