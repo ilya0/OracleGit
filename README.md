@@ -194,12 +194,20 @@ But, there are two trade-offs for this pristine commit history: safety and trace
  
 ##Presentation
 1.Explain the essence git and github
+
 2.Create a github account
+
 3.Install github 
-4.Explain basic push methodology
-5.Create a repo and make everyone push
-6.Explain merging
-7.Create a central repo and have everyone create a
+
+4.Clone
+
+5.Push and Pull
+
+6.Branch and merge, rebase
+
+7.Group merge and pull request
+
+
 
 ## Important commands - Quick guide
 
