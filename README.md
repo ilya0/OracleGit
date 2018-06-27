@@ -4,6 +4,8 @@
 
 Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
 
+
+
 ### What is version control?
 
 Git is, first and foremost, a version control system (VCS). There are many version control systems out there: CVS, SVN, Mercurial, Fossil, and, of course, Git.
@@ -100,67 +102,89 @@ Press enter and a readme and the file association will be created.
 Nearly every VCS has some form of branching support. Branching means you diverge from the main line of development and continue to do work without messing with that main line. In many VCS tools, this is a somewhat expensive process, often requiring you to create a new copy of your source code directory, which can take a long time for large projects.
 	
 	
+###The Merge Option
+The easiest option is to merge the master branch into the feature branch using something like the following:
 
+![](https://wac-cdn.atlassian.com/dam/jcr:01b0b04e-64f3-4659-af21-c4d86bc7cb0b/01.svg?cdnVersion=jc)
+
+~~~~
+git checkout feature
+git merge master
+~~~~
+
+Or, you can condense this to a one-liner:
+
+~~~~
+git merge master feature
+~~~~
+
+This creates a new “merge commit” in the feature branch that ties together the histories of both branches, giving you a branch structure that looks like this:
+
+
+
+![](https://wac-cdn.atlassian.com/dam/jcr:e229fef6-2c2f-4a4f-b270-e1e1baa94055/02.svg?cdnVersion=jc)
+
+Merging is nice because it’s a non-destructive operation. The existing branches are not changed in any way. This avoids all of the potential pitfalls of rebasing (discussed below).
+
+On the other hand, this also means that the feature branch will have an extraneous merge commit every time you need to incorporate upstream changes. If master is very active, this can pollute your feature branch’s history quite a bit. While it’s possible to mitigate this issue with advanced git log options, it can make it hard for other developers to understand the history of the project.
+
+
+
+### The Rebase Option
+
+As an alternative to merging, you can rebase the feature branch onto master branch using the following commands:
+
+~~~
+git checkout feature
+git rebase master
+~~~
+
+This moves the entire feature branch to begin on the tip of the master branch, effectively incorporating all of the new commits in master. But, instead of using a merge commit, rebasing re-writes the project history by creating brand new commits for each commit in the original branch.
+
+![](https://wac-cdn.atlassian.com/dam/jcr:5b153a22-38be-40d0-aec8-5f2fffc771e5/03.svg?cdnVersion=jc)
+
+The major benefit of rebasing is that you get a much cleaner project history. First, it eliminates the unnecessary merge commits required by git merge. Second, as you can see in the above diagram, rebasing also results in a perfectly linear project history—you can follow the tip of feature all the way to the beginning of the project without any forks. This makes it easier to navigate your project with commands like git log, git bisect, and gitk.
+
+But, there are two trade-offs for this pristine commit history: safety and traceability. If you don’t follow the Golden Rule of Rebasing, re-writing project history can be potentially catastrophic for your collaboration workflow. And, less importantly, rebasing loses the context provided by a merge commit—you can’t see when upstream changes were incorporated into the feature.
+
+ 
+##Presenation
+1.Explain the essence git and github
+2.Create a github account
+3.Install github 
+4.Explain basic push methodology
+5.Create a repo and make everyone push
+6.Explain merging
+7.Create a central repo and have everyone create a
+
+## Important commands - Quick guide
+
+- Git status - Status
+- Git remote -v - list all currently configured remote repos
+- Git Init - initialize git
+- Git add- add to the commit list
+- Git reset - reset from a version
+- Git merge - Merge gits
+- Git Log - Show changes
+- Git push - push to a repo
+- Git diff - compair changes
+- git diff [code] - shows changes between tracked files
+- Git Pull - fetch and merge changes on the remote server
+- Git Clone - create a working copy of local repo
+- Git checkout - shows you the code
+- Git fork - Copy git from one person to your git account
+- Git Clone - Clone to local system from github account
+- Git Push - push to local github account
+- Git push <repo> <branch> 
+- git push origin master
+- Git pull - pull to git hub repo
+- git pul <repository> <branch> -
+- git pull upstream master - 
+- Git Pull request (button)  -pull 
+- Git add . - adds all the files                         - adds all the git changes on the list
+
+- rm -rf .git - Remove a git
 	
-
-	
-	
-	
-
-Git merging
-
-Git checkout -b <branch name>
-git checkout <branch>
-git merge <branch>
-
-
-
-
-Git init - intialize repo
-
-Git clone /path/to/repo - create a working copy of local repo
-
-git add . - add all files
-
-git commit -m “message” - commit files
-
-git commit -a -commit all files you’ve changed
-
-git push origin master - send changes to the master branch of your remote repo
-
-git status - get the status of the git on that file directory
-
-git remote add origin <server> - adding a server to push to
-
-git remote -v - list all currently configured remote repos
-
-git pull - fetch and merge changes on the remote server
-
-
-Git status - Status
-Git Init - initialize git
-git add- add to the commit list
-Git reset - reset from a version
-Git merge - Merge gits
-Git Log - Show changes
-Git push - push to a repo
-Git diff - compair changes
-git diff [code] - shows changes between tracked files
-Git Pull - pulling gits
-Git Clone - Make a copy
-Git checkout - shows you the code
-Git fork - Copy git from one person to your git account
-Git Clone - Clone to local system from github account
-Git Push - push to local github account
-Git push <repo> <branch> 
-git push origin master
-Git pull - pull to git hub repo
-git pul <repository> <branch> -
-git pull upstream master - 
-Git Pull request (button)  -pull request button o 
-Git add .                          - adds all the git changes on the list
-
-rm -rf .git - Remove a git
-	
-	
+	Links
+	https://www.atlassian.com/git/tutorials/merging-vs-rebasing
 	
