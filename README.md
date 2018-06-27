@@ -68,7 +68,10 @@ Paste the text in terminal in the folder you have created.
 Press enter and a readme and the file association will be created.
 
 
-### code discetion
+
+
+
+## Stages of a commit
 
 1. echo "# needstobedeleted" >> README.md
 	* Creates #needstobedeled text and places it in the README.MD file to be created	
@@ -77,8 +80,87 @@ Press enter and a readme and the file association will be created.
 3. git add README.md
 	* add readme to git 
 4. git commit -m "first commit"
-	* stage the first commit
+	* That's it! You just created a Git commit and included a message that says first commit. You must always write a message in commit; it not only helps you identify a commit, but it also enables you to understand what you did with the file at that point. So tomorrow, if you add a new piece of code in your file, you can write a commit message that says, Added new code, and when you come back in a month to look at your commit history or Git log (the list of commits), you will know what you changed in the files.
 5. git remote add origin https://github.com/ilya0/needstobedeleted.git
-	* add the remote directory to be pushed to
+	* Let's look at this command step by step. We are telling Git to add a remote called origin with the address https://github.com/<your_username>/Demo.git (i.e., the URL of your Git repo on GitHub.com). This allows you to interact with your Git repository on GitHub.com by typing origin instead of the full URL and Git will know where to send your code. Why origin? Well, you can name it anything else if you'd like.
 6. git push -u origin master
 	* push the commit to the master directory
+
+	
+	
+	
+	
+	
+
+
+
+## Git Branching - Branches in a Nutshell
+	
+	
+Nearly every VCS has some form of branching support. Branching means you diverge from the main line of development and continue to do work without messing with that main line. In many VCS tools, this is a somewhat expensive process, often requiring you to create a new copy of your source code directory, which can take a long time for large projects.
+	
+	
+
+	
+
+	
+	
+	
+
+Git merging
+
+Git checkout -b <branch name>
+git checkout <branch>
+git merge <branch>
+
+
+
+
+Git init - intialize repo
+
+Git clone /path/to/repo - create a working copy of local repo
+
+git add . - add all files
+
+git commit -m “message” - commit files
+
+git commit -a -commit all files you’ve changed
+
+git push origin master - send changes to the master branch of your remote repo
+
+git status - get the status of the git on that file directory
+
+git remote add origin <server> - adding a server to push to
+
+git remote -v - list all currently configured remote repos
+
+git pull - fetch and merge changes on the remote server
+
+
+Git status - Status
+Git Init - initialize git
+git add- add to the commit list
+Git reset - reset from a version
+Git merge - Merge gits
+Git Log - Show changes
+Git push - push to a repo
+Git diff - compair changes
+git diff [code] - shows changes between tracked files
+Git Pull - pulling gits
+Git Clone - Make a copy
+Git checkout - shows you the code
+Git fork - Copy git from one person to your git account
+Git Clone - Clone to local system from github account
+Git Push - push to local github account
+Git push <repo> <branch> 
+git push origin master
+Git pull - pull to git hub repo
+git pul <repository> <branch> -
+git pull upstream master - 
+Git Pull request (button)  -pull request button o 
+Git add .                          - adds all the git changes on the list
+
+rm -rf .git - Remove a git
+	
+	
+	
