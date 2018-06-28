@@ -1,6 +1,6 @@
 
 
-## What is Git?
+# What is Git?
 
 Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
 
@@ -14,7 +14,7 @@ Git serves as the foundation for many services, like GitHub and GitLab, but you 
 
 If you have ever collaborated on anything digital with anyone, then you know how it goes. It starts out simple: you have your version, and you send it to your partner. They make some changes, so now there are two versions, and send the suggestions back to you. You integrate their changes into your version, and now there is one version again.
 
-### Git snapshots
+#### Git snapshots
 Git takes snapshots of a project, and stores those snapshots as unique versions.
 
 If you go off in a direction with your project that you decide was the wrong direction, you can just roll back to the last good version and continue along an alternate path.
@@ -25,7 +25,6 @@ If you're collaborating, then when someone sends you changes, you can merge thos
 
 ### Difference between ***Git*** and *GitHub*
 Before we dive in, let's clear up a common misconception: Git isn't the same thing as GitHub. Git is a version-control system (i.e., a piece of software) that helps you keep track of your computer programs and files and the changes that are made to them over time. It also allows you to collaborate with your peers on a program, code, or file. GitHub and similar services (including GitLab and BitBucket) are websites that host a Git server program to hold your code.
-
 
 
 ## Code along
@@ -68,7 +67,7 @@ $ git config --global user.name "Emma Paris"
 
 
 
-###Creating an online Repository
+### Creating an online Repository
 
 Step 1. The easiest way to get started is to create an account on [GitHub.com](www.github.com) (it's free).
 
@@ -114,7 +113,7 @@ Press enter and a readme and the file association will be created.
 
 
 
-## Stages of a commit
+### Stages of a commit
 
 1. echo "# Demo" >> README.md
 	* Creates #Demo text and places it in the README.MD file to be created	
@@ -143,9 +142,73 @@ Press enter and a readme and the file association will be created.
 Nearly every VCS has some form of branching support. Branching means you diverge from the main line of development and continue to do work without messing with that main line. In many VCS tools, this is a somewhat expensive process, often requiring you to create a new copy of your source code directory, which can take a long time for large projects.
 
 
-### Creating a Branch
+### Git Branches
+A branch represents an independent line of development. Branches serve as an abstraction for the edit/stage/commit process. You can think of them as a way to request a brand new working directory, staging area, and project history. New commits are recorded in the history for the current branch, which results in a fork in the history of the project.
 
-	
+The git branch command lets you create, list, rename, and delete branches. It doesn’t let you switch between branches or put a forked history back together again. For this reason, git branch is tightly integrated with the git checkout and git merge commands.
+
+
+![https://wac-cdn.atlassian.com/dam/jcr:746be214-eb99-462c-9319-04a4d2eeebfa/01.svg?cdnVersion=jc]()
+
+The diagram above visualizes a repository with two isolated lines of development, one for a little feature, and one for a longer-running feature. By developing them in branches, it’s not only possible to work on both of them in parallel, but it also keeps the main master branch free from questionable code.
+
+
+Common Options
+~~~~~
+git branch
+~~~~~
+  
+List all of the branches in your repository. This is synonymous with git branch --list.
+
+~~~~~
+git branch <branch>
+~~~~~
+
+Create a new branch called <branch>. This does not check out the new branch.
+
+~~~~~
+git branch -d <branch>
+~~~~~
+
+Delete the specified branch. This is a “safe” operation in that Git prevents you from deleting the branch if it has unmerged changes.
+
+~~~~~
+git branch -D <branch>
+~~~~~
+Force delete the specified branch, even if it has unmerged changes. This is the command to use if you want to permanently throw away all of the commits associated with a particular line of development.
+
+~~~~~
+git branch -m <branch>
+~~~~~
+Rename the current branch to <branch>.
+~~~~~
+git branch -a
+~~~~~
+List all remote branches. 
+
+##Creating Branches
+It's important to understand that branches are just pointers to commits. When you create a branch, all Git needs to do is create a new pointer, it doesn’t change the repository in any other way. If you start with a repository that looks like this:
+
+![https://wac-cdn.atlassian.com/dam/jcr:80aa77d2-c28f-415e-ab10-e3612456a9c1/02.svg?cdnVersion=jc
+]()
+
+[https://www.atlassian.com/git/tutorials/using-branches]()
+
+~~~~
+git branch crazy-experiment
+~~~~
+The repository history remains unchanged. All you get is a new pointer to the current commit:
+
+![https://wac-cdn.atlassian.com/dam/jcr:b0e2f237-9337-4385-be22-43f623e133d0/03.svg?cdnVersion=jc
+]()
+
+### Deleting Branches
+Once you’ve finished working on a branch and have merged it into the main code base, you’re free to delete the branch without losing any history:
+
+~~~~~
+git branch -d crazy-experiment
+~~~~~
+
 ###The Merge Option
 The easiest option is to merge the master branch into the feature branch using something like the following:
 
