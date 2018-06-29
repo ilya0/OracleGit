@@ -53,16 +53,22 @@ Install Git with Homebrew
 If you have installed Homebrew to manage packages on OS X, you can follow these instructions to install Git:
 
 Open your terminal and install Git using Homebrew:
-
+~~~~
 $ brew install git
+~~~~
 Verify the installation was successful by typing which git --version:
 
+~~~~
 $ git --version
+~~~~
  git version 2.9.2
 Configure your Git username and email using the following commands, replacing Emma's name with your own. These details will be associated with any commits that you create:
 
+~~~~~
 $ git config --global user.name "Emma Paris" 
- $ git config --global user.email "eparis@atlassian.com"
+$ git config --global user.email "eparis@atlassian.com"
+~~~~~
+
 (Optional) To make Git remember your username and password when working with HTTPS repositories, install the git-credential-osxkeychain helper.
 
 
@@ -79,9 +85,6 @@ A repository is like a place or a container where something is stored; in this c
 Enter a name for your repository (e.g, "Demo") and click Create Repository. Don't worry about changing any other options on this page.
 
 Congratulations! You have set up your first repo on GitHub.com.
-
-
-
 
 
 Step 3: Create a file
@@ -209,6 +212,21 @@ Once you’ve finished working on a branch and have merged it into the main code
 git branch -d crazy-experiment
 ~~~~~
 
+### Switching Branches
+Switching branches is a straightforward operation. Executing the following will point HEAD to the tip of <branchname>.
+
+~~~
+git checkout <branchname>
+~~~
+### Checking out Branches
+This page is an examination of the git checkout command. It will cover usage examples and edge cases. In Git terms, a "checkout" is the act of switching between different versions of a target entity. The git checkout command operates upon three distinct entities: files, commits, and branches. In addition to the definition of "checkout" the phrase "checking out" is commonly used to imply the act of executing the git checkout command.
+
+Git checkout works hand-in-hand with git branch. The git branch command can be used to create a new branch. When you want to start a new feature, you create a new branch off master using git branch new_branch. Once created you can then use git checkout new_branch to switch to that branch. Additionally, The git checkout command accepts a -b argument that acts as a convenience method which will create the new branch and immediately switch to it. You can work on multiple features in a single repository by switching between them with git checkout.
+
+~~~
+git checkout -b <new-branch>
+~~~
+
 ###The Merge Option
 The easiest option is to merge the master branch into the feature branch using something like the following:
 
@@ -259,12 +277,15 @@ But, there are two trade-offs for this pristine commit history: safety and trace
 1.Explain the essence git and github
 
 2.Create a github account
+	- Have everyone log in and create a account
 
 3.Install github 
+	- Have everyon install git
+	- 
+4. Creating a Repo and pushing to it
+	- everyone creates a repo and pushes to it
 
-4.Clone
-
-5.Push and Pull
+5.Push, Pull and clone
 
 6.Branch and merge, rebase
 
@@ -296,10 +317,10 @@ But, there are two trade-offs for this pristine commit history: safety and trace
 - git pul <repository> <branch> -
 - git pull upstream master - 
 - Git Pull request (button)  -pull 
-- Git add . - adds all the files                         - adds all the git changes on the list
-
+- Git add . - adds all the files                         
+- adds all the git changes on the list
 - rm -rf .git - Remove a git
 	
 	Links
 	https://www.atlassian.com/git/tutorials/merging-vs-rebasing
-	
+	https://git-scm.com/
