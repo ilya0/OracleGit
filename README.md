@@ -216,7 +216,7 @@ git branch -d crazy-experiment
 Switching branches is a straightforward operation. Executing the following will point HEAD to the tip of <branchname>.
 
 ~~~
-git checkout <branchname>
+git checkout <branchname>iosove
 ~~~
 ### Checking out Branches
 This page is an examination of the git checkout command. It will cover usage examples and edge cases. In Git terms, a "checkout" is the act of switching between different versions of a target entity. The git checkout command operates upon three distinct entities: files, commits, and branches. In addition to the definition of "checkout" the phrase "checking out" is commonly used to imply the act of executing the git checkout command.
@@ -324,3 +324,10 @@ But, there are two trade-offs for this pristine commit history: safety and trace
 	Links
 	https://www.atlassian.com/git/tutorials/merging-vs-rebasing
 	https://git-scm.com/
+	
+	
+	Issues 
+	* Need to fix branching language 
+	* Clarity in using different systems
+	* add more links
+	* 
